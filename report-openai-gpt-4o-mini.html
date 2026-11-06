@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>RAG eval detection test — report</title>
+<style>
+  body { font: 15px/1.5 -apple-system, system-ui, sans-serif; max-width: 920px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  table { border-collapse: collapse; width: 100%; margin-top: 0.5rem; }
+  th, td { border: 1px solid #ddd; padding: 0.4rem 0.6rem; text-align: left; font-size: 0.92rem; }
+  th { background: #f5f5f5; }
+  td.variant { font-family: ui-monospace, monospace; font-size: 0.85rem; }
+  .skip { color: #999; }
+  .err { color: #b00020; cursor: help; }
+  .n { color: #888; font-size: 0.85em; }
+  .meta { color: #555; font-size: 0.9rem; }
+  code { background: #f0f0f0; padding: 0.1rem 0.3rem; border-radius: 3px; }
+</style>
+</head>
+<body>
+<h1>Reference-free RAG metric detection test</h1>
+<p class="meta">
+  Generated 2026-11-06T05:08:06.141Z · corpus size 8 ·
+  judge: openai (gpt-4o-mini) ·
+  Δ threshold 0.1
+</p>
+
+<h2>Detection rate by corruption type</h2>
+<p class="meta">Fraction of corpus items where the metric's score dropped by at least Δ on the corrupted variant vs. that same item's clean variant.</p>
+<table>
+  <tr><th>Metric</th><th>Bad retrieval</th><th>Hallucinated</th></tr>
+  <tr>
+    <td>Faithfulness</td>
+    <td>100% <span class="n">(n=8)</span></td>
+    <td>100% <span class="n">(n=8)</span></td>
+  </tr>
+<tr>
+    <td>Response Relevancy</td>
+    <td>0% <span class="n">(n=8)</span></td>
+    <td>25% <span class="n">(n=8)</span></td>
+  </tr>
+<tr>
+    <td>Context Precision (no ref)</td>
+    <td>100% <span class="n">(n=8)</span></td>
+    <td>0% <span class="n">(n=8)</span></td>
+  </tr>
+</table>
+
+<h2>Raw scores per variant</h2>
+<table>
+  <tr><th>Variant</th><th>Faithfulness</th><th>Response Relevancy</th><th>Context Precision (no ref)</th></tr>
+  <tr><td class="variant">qa-1/clean</td><td>1.000</td>
+<td>0.671</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-1/bad-retrieval</td><td>0.000</td>
+<td>0.671</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-1/hallucinated</td><td>0.500</td>
+<td>0.545</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-2/clean</td><td>1.000</td>
+<td>0.821</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-2/bad-retrieval</td><td>0.000</td>
+<td>0.821</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-2/hallucinated</td><td>0.667</td>
+<td>0.732</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-3/clean</td><td>1.000</td>
+<td>0.709</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-3/bad-retrieval</td><td>0.000</td>
+<td>0.709</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-3/hallucinated</td><td>0.667</td>
+<td>0.641</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-4/clean</td><td>1.000</td>
+<td>0.584</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-4/bad-retrieval</td><td>0.000</td>
+<td>0.593</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-4/hallucinated</td><td>0.667</td>
+<td>0.535</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-5/clean</td><td>1.000</td>
+<td>0.648</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-5/bad-retrieval</td><td>0.000</td>
+<td>0.648</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-5/hallucinated</td><td>0.500</td>
+<td>0.554</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-6/clean</td><td>1.000</td>
+<td>0.632</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-6/bad-retrieval</td><td>0.000</td>
+<td>0.631</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-6/hallucinated</td><td>0.500</td>
+<td>0.623</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-7/clean</td><td>1.000</td>
+<td>0.744</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-7/bad-retrieval</td><td>0.000</td>
+<td>0.744</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-7/hallucinated</td><td>0.667</td>
+<td>0.649</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-8/clean</td><td>1.000</td>
+<td>0.634</td>
+<td>1.000</td></tr>
+<tr><td class="variant">qa-8/bad-retrieval</td><td>0.000</td>
+<td>0.634</td>
+<td>0.000</td></tr>
+<tr><td class="variant">qa-8/hallucinated</td><td>0.667</td>
+<td>0.505</td>
+<td>1.000</td></tr>
+</table>
+
+<p class="meta">See the repo's <code>sources.md</code> / <code>README.md</code> for what each metric is actually supposed to catch, and for the primary sources behind the claim that some of these are reference-free and some are not.</p>
+</body>
+</html>
